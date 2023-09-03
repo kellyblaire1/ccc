@@ -1,0 +1,31 @@
+nav {
+  border-bottom: 1px solid #333;
+
+  .searchform {
+    width: 50%;
+    display: flex;
+    gap: 5px;
+  }
+
+  .rt {
+    width: 50%;
+    text-align: right;
+  }
+
+//   mobile screen
+  @media (max-width: 767px) {
+    .searchform {
+      width: 100%;
+    }
+
+    .rt {
+        display: none;
+    }
+  }
+}
+
+.offcanvas {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto!important;
+}

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row g-4">
+        <div class="col-lg-9 mx-auto ">
+            <button class="btn btn-dark my-3" routerLink="/blog"><i class="mdi mdi-arrow-left"></i> Blog Home</button>
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    
+                    <div class="lead d-flex justify-content-between align-items-center">
+                        <span>{{blog?.created | date}}</span>
+                        <div class="badge bg-success">{{blog?.category}}</div>
+                    </div>                    
+                    <hr>
+
+                    <div class="display-6">{{blog?.title}}</div>
+
+                    <hr>
+
+                    <div class="share d-flex flex-row gap-3">
+                        <span>Share this post:</span>
+                        <a (click)="share(blog?.content,'facebook')" role="button"><i class="bi bi-facebook"></i></a>
+                        <a (click)="share(blog?.content,'twitter')" role="button"><i class="bi bi-twitter"></i></a>
+                        <a  (click)="share(blog?.content,'linkedin')" role="button"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <hr>
+
+                    <img [src]="imgFolderURL+blog?.image" class="img-fluid" alt="Featured Image">
+
+                    <div class="my-4">
+                        By: {{blog?.poster}}
+                    </div>
+
+                    <div class="" [innerHTML]="blog?.content"></div>
+                    <!-- <div>{{blog?.content}}</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

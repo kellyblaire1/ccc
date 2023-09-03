@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11 mx-auto py-5">
+            <h2 class="d-flex flex-row justify-content-between align-items-center">
+                <span>Users</span>
+
+                <div>
+                    <button class="btn btn-dark" routerLink="/create-blog">Write Blog Post</button>
+                </div>
+            </h2>
+
+            <div class="d-flex w-lg-50 w-100 gap-1 mb-3">
+                <input type="search" class="form-control" placeholder="Search name or email..." [(ngModel)]="keyword">
+                <!-- <button class="btn btn-primary" [disabled]="address.length !== 44" (click)="addAddress()">Add</button> -->
+            </div>
+
+            <div class="card bg-dark">
+                <div class="card-body p-0">
+                    <table class="table bg-dark table-hover p-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">User</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">
+                                    Disable Account
+                                </th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of users; let i=index">
+                                <td>
+                                    {{item.fname}} {{item.lname}}
+                                    <br>
+                                    
+                                    <div *ngIf="item.account==='1'">
+                                        <span>Admin</span> | 
+                                        <a role="button" class="small text-danger" (click)="removeAdmin(item.uid)">(Remove Admin)</a>
+                                    </div>
+                                    
+                                    <div *ngIf="item.account!='1'">
+                                        <a role="button" class="small text-danger" (click)="makeAdmin(item.uid)">(Make Admin)</a>
+                                    </div>
+                                </td>
+                                <td><a href="mailto:{{item.email}}">{{item.email}}</a></td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" [checked]="item.status===2" (change)="deactivate(item.uid,$event)">
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger me-1" (click)="deleteItem(item.uid)"><i class="mdi mdi-delete"></i></button>
+                                    <a href="mailto:{{item.email}}" class="btn border-0 btn-success"><i class="mdi mdi-email"></i></a>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

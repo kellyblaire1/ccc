@@ -1,1 +1,171 @@
 /* You can add global styles to this file, and also import other style files */
+// Override Bootstrap variables for dark theme
+$primary: #ab2afb;
+$secondary: #6c757d;
+$light: #f8f9fa;
+$dark: #141414;
+$border: #a1a5a2;
+$offcanvas-horizontal-width: 50px;
+$bgDark: #202726;
+$bgDarkRGB: $bgDark;
+
+:root {
+  // --bs-border-color: $border!important;
+  --bs-offcanvas-width: 200px!important;
+  --bs-dark-rgb: $bgDarkRGB;
+  --bs-nav-pills-link-active-bg: $primary!important;
+}
+
+*,html,body {
+  // font-family: 'Lato', sans-serif;
+  // font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+// Override Bootstrap body background and text colors
+body {
+  background-color: $dark;
+  color: $light;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Poppins', sans-serif;
+  color: $primary!important;
+  // font-family: 'Lato', sans-serif;
+  // font-family: 'Roboto', sans-serif;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $primary!important;
+}
+
+.btn-dark {
+  background-color: $dark!important;
+  outline-color: $primary!important;
+  border-color: $primary!important;
+  border: 2px solid $primary!important;
+  transition: all ease-in-out 0.3s!important;
+}
+
+.btn-dark:hover {
+  background-color: $primary!important;
+  outline-color: $primary!important;
+  border-color: $primary!important;
+  border: 2px solid #f8f9fa!important;
+}
+
+.btn-secondary {
+  background-color: $dark!important;
+  outline-color: $primary!important;
+  border-color: $primary!important;
+  border: 2px solid $primary!important;
+}
+
+.bg-dark {
+  background-color: $bgDark!important;
+}
+
+.bg-black {
+  background-color: #000000!important;
+}
+
+.text-primary {
+  color: $primary!important;
+}
+
+a {
+  color: $light;
+  text-decoration: none;
+}
+
+// Remove focus outlines on form elements
+.form-control,
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  outline: none;
+}
+
+/* Remove glow from buttons */
+.btn:focus,
+.btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove glow from form elements */
+.form-control:focus,
+.form-control:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.form-control {
+  background-color: $bgDark!important;
+  color: $light!important;
+  border-color: $border!important;
+  outline-color: $border!important;
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+}
+
+/* Remove glow from links */
+a:focus,
+a:active {
+  outline: none;
+  box-shadow: none;
+}
+
+
+// Remove focus outlines on buttons
+.btn {
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+// ripple effect
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s, opacity 0.4s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ripple-effect {
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+}
+
+
+.logo2white {
+  /* Apply the CSS filter property */
+  filter: brightness(80%) invert(90%);
+}
+
+.form-label {
+  color: white;
+}
+
+.card-text {
+  color: white!important;
+}

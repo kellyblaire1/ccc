@@ -1,0 +1,31 @@
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-lg-7 mx-auto text-center">
+            <h1 class="h1">{{greeting || 'Welcome'}}, {{user?.fname || 'Champ'}}!</h1>
+            <p>A fast, reliable and easy tool to use for tracking your DeFi positions.</p>
+            <hr>
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <input (input)="checkSearch($event)" type="search" class="form-control" placeholder="Search Address..." [(ngModel)]="search">
+                        <div class="text-end">
+                            <a role="button" connect>Check out demo</a>
+                        </div>
+                    </div>   
+                    <div class="col-12">
+                        <div class="card bg-dark">
+                            <div class="card-body text-white">
+                                <div class="lead fw-bold">Your PRO Status</div>
+                                <div class="mb-4">Status: BASIC</div>
+    
+                                <div class="d-grid">
+                                    <button class="btn btn-dark" connect>Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

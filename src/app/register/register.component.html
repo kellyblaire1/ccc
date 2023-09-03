@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 mx-auto pt-5">
+            <h1 class="h1 text-center">Create Account</h1>
+            <p class="text-center">Don't worry, it's absolutely free!</p>
+            <div class="card bg-dark">
+                <div class="card-body text-white">
+                    <form [formGroup]="form" class="row g-3" (ngSubmit)="register()">
+                        <div class="col-lg-6">
+                            <label class="form-label" for="">First Name</label>
+                            <input type="text" placeholder="" class="form-control" formControlName="fname">
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label" for="">Last Name</label>
+                            <input type="text" placeholder="" class="form-control" formControlName="lname">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="">Email Address</label>
+                            <input type="email" placeholder="" class="form-control" formControlName="email">
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="form-label" for="">Password</label>
+                            <input type="password" placeholder="" class="form-control" formControlName="password">
+                        </div>
+                        <div class="col-lg-12 d-grid">
+                            <button type="submit" [disabled]="submitted" class="btn btn-secondary">{{submitted ? 'Loading...' :'Create Account'}}</button>
+                        </div>
+                    </form>
+    
+                    <div class="d-flex flex-column flex-lg-row text-center py-3">
+                        <span class="text-secondary">Already have an account?</span> &nbsp;
+                        <a routerLink="/login">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-11 mx-auto py-4">
+            <h1 class="h3">CryptoCoinChain Ecosystem</h1>
+            <hr>
+            
+            <div class="d-flex flex-row flex-wrap gap-2">
+                <div connect class="lead fw-light" *ngFor="let item of badges;"><span role="button" class="badge bg-black border rounded-pill">{{item}}</span></div>
+            </div>
+
+            <hr>
+
+            <h1 class="lead">Platforms</h1>
+            <hr>
+
+            <div class="container mb-5">
+                <div class="row g-4">
+                    <div class="col-lg-6" *ngFor="let item of cards">
+                        <div class="card bg-dark text-white h-100">
+                            <div class="card-header">
+                                <div class="d-flex gap-3 align-items-center mb-2">
+                                    <img src="../../assets/img/platforms/{{item.logo}}" width="30" alt="">
+                                    <div class="h3 m-0">{{item.title}}</div>
+                                </div>
+                                <p>
+                                    <a [attr.href]="item.url" target="_blank">{{item.url}}</a>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <div class="">{{item.description}}</div>
+                            </div>
+                            <div class="card-footer d-flex gap-3 flex-row flex-wrap">
+                                <div connect class="fw-light" *ngFor="let item of item.badges;"><span role="button" class="badge bg-black border rounded-pill">{{item}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

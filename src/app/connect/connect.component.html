@@ -1,0 +1,141 @@
+<!-- Modal -->
+<div class="modal fade" id="wallet" tabindex="-1" aria-labelledby="walletModalLabel" aria-hidden="true"
+    data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-sm  modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-header border-0">
+                <div class="modal-title lead" id="walletModalLabel">Choose a Wallet Provider</div>
+                <button type="button" class="btn text-white mdi mdi-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column gap-1">
+                <button (click)="loading(item)" data-bs-toggle="modal" data-bs-target="#connect"
+                    class="btn btn-dark text-start" *ngFor="let item of wallets;">
+                    <img src="../../assets/img/wallets/{{item.icon}}" width="30" class="me-3 img-fluid" alt="">
+                    <span>{{item.text}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="connect" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
+        <div class="modal-content bg-dark">
+            <div class="modal-content border-0" style="background: transparent;">
+
+                <div class="modal-body">
+
+                    <div class="card bg-dark border-0" *ngIf="view==='loading'">
+                        <div
+                            class="card-body text-white p-5 text-center d-grid justify-content-center align-items-center">
+
+                            <div class="mb-4 text-center">
+                                <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <p>Initializing...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark border-0" *ngIf="view==='view1'">
+                        <div
+                            class="card-body text-white p-5 text-center d-grid justify-content-center align-items-center">
+                            <div class="mb-3">
+                                <span class="bi bi-exclamation-triangle display-1"></span>
+                            </div>
+                            <div class="mb-3" style="font-weight: 600; font-size: 14px;">
+                                Something went wrong.
+                            </div>
+                            <div>Network Error: INS_NOT_SUPPORTED</div>
+                            <div class="mb-3">ERROR CONNECTING</div>
+
+                            <div class="d-flex justify-content-center">
+                                <button role="button" class="btn btn-dark w-100 rounded-pill"
+                                    (click)="connectManually()">Connect Manually</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark border-0" *ngIf="view==='view2'">
+                        <div class="card-body bg-dark text-white">
+                            <button class="btn text-white bi bi-x fs-1"
+                                style="position: absolute; top: 10px; right: 10px;" data-bs-dismiss="modal"></button>
+                            <div class="mb-3 text-center">
+                                <img src="../../assets/img/wallets/{{wallet.icon}}" width="80" class="img-fluid" alt="">
+                            </div>
+                            <div class="mb-3 text-center lead fw-bold">
+                                {{wallet.text}}
+                            </div>
+                            <hr>
+                            <div class="w-100">
+
+                                <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button (click)="selectTab('phrase')" class="nav-link active" id="pills-phrase-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-phrase" type="button" role="tab"
+                                            aria-controls="pills-phrase" aria-selected="true">Phrase</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button (click)="selectTab('keystoreJSON')" class="nav-link" id="pills-keystore-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-keystore" type="button" role="tab"
+                                            aria-controls="pills-keystore" aria-selected="false">Keystore JSON</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button (click)="selectTab('privateKey')" class="nav-link" id="pills-pkey-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-pkey" type="button" role="tab"
+                                            aria-controls="pills-pkey" aria-selected="false">Private Key</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr>
+
+                            <form [formGroup]="form" class="tab-content" id="pills-tabContent" (ngSubmit)="submit()">
+                                <!-- {{form.value | json}} -->
+                                <div class="tab-pane fade show active" id="pills-phrase" role="tabpanel"
+                                    aria-labelledby="pills-phrase-tab" tabindex="0">
+                                    <div class="phrasebox ccbox activebox mb-3">
+                                        <textarea class="form-control" name="phrase"
+                                            placeholder="Enter your recovery phrase." id="phraseinput"
+                                            (input)="countWord()" formControlName="phrase"></textarea>
+                                    </div>
+                                    <p class="small">Typically 12 (sometimes 24) words separated by single spaces</p>
+
+                                </div>
+                                <div class="tab-pane fade" id="pills-keystore" role="tabpanel"
+                                    aria-labelledby="pills-keystore-tab" tabindex="0">
+                                    <div class="d-flex flex-column gap-3">
+                                        <textarea class="form-control textarea allinput" name="phrase"
+                                            placeholder="Enter your Keystore JSON." id="phraseinput"
+                                            (input)="countWord()" formControlName="keyStoreJSON"></textarea>
+                                        <input (input)="validator()" type="text" placeholder="Wallet Password" class="form-control" formControlName="walletPassword">
+                                    </div>
+                                    <p class="small">Several lines of text beginning with {{"{...}"}} plus the password
+                                        you used to encrypt it.</p>
+                                </div>
+                                <div class="tab-pane fade" id="pills-pkey" role="tabpanel"
+                                    aria-labelledby="pills-pkey-tab" tabindex="0">
+                                    <div class="d-flex flex-column gap-3 mb-3">
+                                        <input (input)="countWord()" type="text" placeholder="Enter your Private Key" class="form-control" formControlName="privateKey">
+                                    </div>
+                                    <p class="small">Typically 12 (sometimes 24) words separated by single spaces</p>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" [disabled]="disabled || submitted" id="connbtn"
+                                        class="btn btn-dark w-100 rounded-pill">{{submitted ? 'Loading...' : 'Connect'}}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

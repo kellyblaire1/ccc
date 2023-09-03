@@ -1,0 +1,45 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12 text-center mb-5">
+            <div class="logo mb-5">
+                <img src="../../assets/img/logo.png" width="200" class="logo2white img-fluid" alt="Logo">
+            </div>
+
+            <div class="display-6 fw-bold mb-5">A Platform to track your <br>DeFi performance on Cardano blockchain</div>
+
+            <button type="button" class="btn btn-dark btn-lg" connect>Connect Wallet</button>
+        </div>
+
+        <div class="col-lg-12 text-center my-2">
+            <h5>Buy $CryptoCoinChain</h5>
+            <div class="my-3 d-flex gap-3 justify-content-center">
+                <button type="button" connect class="btn rounded-pill" style="background-image: url(''); background-position: center center;">
+                    <img src="../../assets/img/buy/buy1.png" width="30" alt="">
+                </button>
+                <button type="button" connect class="btn rounded-pill" style="background-image: url(''); background-position: center center;">
+                    <img src="../../assets/img/buy/buy2.png" width="30" alt="">
+                </button>
+                <button type="button" connect class="btn rounded-pill" style="background-image: url(''); background-position: center center;">
+                    <img src="../../assets/img/buy/buy3.png" width="30" alt="">
+                </button>
+                <button type="button" connect class="btn rounded-pill" style="background-image: url(''); background-position: center center;">
+                    <img src="../../assets/img/buy/buy4.png" width="30" alt="">
+                </button>                
+            </div>
+        </div>
+        
+
+        <div class="col-lg-12 text-center my-3">
+            <div class="card bg-dark">
+                <div class="card-body py-4">
+                    <h5>Supported on CryptoCoinChain</h5>
+                    <div class="my-3 d-flex flex-row flex-wrap gap-3 justify-content-center">
+                        <button connect class="btn rounded-pill" style="background-image: url(''); background-position: center center;" *ngFor="let item of platforms">
+                            <img src="../../assets/img/platforms/{{item.logo}}" width="30" alt="">
+                        </button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

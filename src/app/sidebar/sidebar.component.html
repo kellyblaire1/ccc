@@ -1,0 +1,28 @@
+<div class="sidebar p-2">
+    <a routerLink="/" class="logo-container text-center">
+        <img src="../../assets/img/logo.png" class="logo2white" alt="Logo" width="150">
+    </a>
+    <hr class="m-0">
+    <div class="d-grid">
+        <button type="button" routerLink="/addressbook" class="btn btn-dark" appRipple>Track An Address</button>
+    </div>
+    
+    <hr class="m-0">
+    
+    <div class="d-grid" *ngIf="isAdmin">
+        <button class="btn btn-dark" appRipple routerLink="/admin">Admin Dashboard</button>
+    </div>
+    
+    <div class="d-grid" *ngIf="!isAdmin">
+        <button class="btn btn-dark" appRipple connect>Connect Wallet</button>
+    </div>
+
+    <hr class="m-0">
+
+    <div class="navigation">
+        <a role="button" (click)="hideMenu()" data-bs-dismiss="offcanvas" aria-label="Close" routerLinkActive="active" routerLink="/{{item.link}}" class="nav-link" *ngFor="let item of navLinks; let i=index">
+            <i class="mdi mdi-{{item.icon}}"></i>
+            <span>{{item.text}}</span>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+table {
+  th,
+  tr,
+  td {
+    background-color: transparent;
+    border-color: transparent;
+    color: #c1c2c3;
+  }
+  th,td {
+    padding: 10px 20px;
+  }
+}
+
+.col-70 {
+  width: 70%;
+}
+
+.col-10 {
+  width: 10%;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #5c5d5e;
+}

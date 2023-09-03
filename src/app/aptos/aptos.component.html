@@ -1,0 +1,24 @@
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-lg-7 mx-auto text-center">
+            <h1 class="h1">Empowering Your DeFi Journey</h1>
+            <p>A fast, reliable and easy tool to use for tracking your DeFi positions.</p>
+            <hr>
+            <div class="container">
+                <div class="row g-1">
+                    <div class="col-3">
+                        <select class="form-select bg-transparent text-white" id="">
+                            <option [value]="item.name" class="text-white bg-dark my-3 py-2" *ngFor="let item of aptos;">{{item.name}}</option>
+                        </select>    
+                    </div>
+                    <div class="col-9">
+                        <input type="search" class="form-control" placeholder="Search Address...">
+                        <div class="text-end">
+                            <a role="button" connect>Check out demo</a>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
